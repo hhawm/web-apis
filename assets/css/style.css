@@ -1,0 +1,140 @@
+body {
+    background-color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+/* Display: none will hide all the page content */
+#start-screen,
+#question-screen,
+#result-screen,
+#scores-screen {
+    display: none;
+}
+
+
+
+/* Header: view high score and time remaining */
+#header {
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.list-heading {
+    margin-bottom: 2rem;
+}
+
+#high-scores-link {
+    color: white;
+    font-weight: bolder;
+}
+
+#high-scores-link:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+#time {
+    color: white;
+    font-weight: bolder;
+}
+
+#current-time, #final-time {
+    font-weight: bolder;
+}
+
+/* Main center white window */
+#wrapper {
+    background-color: white;
+    width: 100%;
+    max-width: 960px;
+    min-height: 400px;
+    margin: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Select a quiz page */
+#select-screen {
+    text-align: center;
+}
+
+#quiz-select-list {
+    list-style-type: none;
+    padding: 0;
+} 
+
+#quiz-select-list button {
+    width: 30%;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+/* Main page */
+#start-screen {
+    text-align: center;
+    margin: auto;
+}
+
+#start-screen p:last-of-type {
+    padding-bottom: 2rem;
+}
+
+#start {
+    margin: auto;
+}
+
+/* Questions page */
+#response-list {
+    list-style-type: none;
+    text-align: left;
+}
+
+.btn-choice {
+    display: block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+.btn-choice:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+#response-correct {
+    visibility: hidden;
+    color:red;
+    font-weight: bolder;
+    border-top: 1px solid black;
+    padding-top: .5rem;
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* High score list page */
+#high-score-list {
+    /* list-style-position will number the OL inside the LI */
+    list-style-position: inside;
+    padding-left: 0;
+}
+.score-item {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.score-item.current {
+    border: 1px solid black;
+    font-weight: bolder;
+}
+
+#btnBack, #btnClearScores {
+    margin-bottom: 1rem;
+}
