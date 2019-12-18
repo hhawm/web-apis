@@ -66,9 +66,6 @@ var quizzes = [
     },
 ];
 
-// debugger 
-debugger;
-
 // CONST are variables that can neither be updated nor re-declared
 const TIME_PER_QUESTION = 15;
 const WRONG_PENALTY = 10;
@@ -140,7 +137,7 @@ function handleViewHigh() {
 // Start Game
 function handleStartGame() {
     questionIndex = 0;
-    timeRemaining = TIME_PER_QUESTION * questions.length;
+    timeRemaining = 75;
     updateTimeDisplay();
     loadCurrentQuestion();
     showScreen(screenQuestionEl);
@@ -306,7 +303,7 @@ function buildQuizList() {
         selectQuizListEl.appendChild(btn);
     }
 
-
+    myFunction();
 
 }
 
@@ -314,12 +311,12 @@ function myFunction() {
     alert("Good luck friend");
 }
 
-// Create a single quiz button
+// Creates single quiz button
 function createQuizButton(name, index) {
-
     var li = document.createElement("li");
     var btn = document.createElement("button");
     btn.textContent = name;
+    console.log(btn.textContent);
     btn.setAttribute("class", "btn btn-primary btn-choice");
     btn.setAttribute("data-id", index);
     li.appendChild(btn);
@@ -336,7 +333,7 @@ function showScreen(el) {
     currentScreenEl = el;
 }
 
-// List of addEventListener when clicked
+// List of addEventListener when clicked (BUTTONS)
 selectQuizListEl.addEventListener("click", handleQuizSelect);
 viewHighEl.addEventListener("click", handleViewHigh);
 btnStartEl.addEventListener("click", handleStartGame);
