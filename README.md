@@ -11,7 +11,7 @@ High score page will show top 1 thru 5 scores in order with the initials and sco
 
 
 
-quizscreenshot.png
+![quiz screen shot](https://user-images.githubusercontent.com/57507679/71058975-32ec2780-2127-11ea-9dd2-caee136d2964.png)
 
 
 
