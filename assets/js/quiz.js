@@ -66,6 +66,9 @@ var quizzes = [
 ];
 
 
+debugger;
+
+
 const TIME_PER_QUESTION = 15;
 const WRONG_PENALTY = 10;
 const TIME_SHOW_CORRECT_MS = 1500;
