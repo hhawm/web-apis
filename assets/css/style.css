@@ -4,7 +4,7 @@ body {
    
 }
 
-/* Display: none will hide all the page content */
+/* Display: none will hide all the page content till later */
 #start-screen,
 #question-screen,
 #result-screen,
@@ -50,7 +50,7 @@ body {
     background-color: white;
     width: 100%;
     max-width: 960px;
-    min-height: 400px;
+    min-height: 420px;
     margin: auto;
     padding: 1.5rem;
     display: flex;

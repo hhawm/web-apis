@@ -1,7 +1,8 @@
+// VAR list of arrays with questions, multiple choices, answers
 var quizzes = [
     {
-        name: "Code Quiz",
-        description: "Prepare to answer questions about javascript.",
+        name: "Quiz 1: Javascript",
+        description: "These are simple questions about javascript.",
         questions: [
             {
                 title: "Commonly used data types DO NOT include:",
@@ -32,8 +33,8 @@ var quizzes = [
         ]
     },
     {
-        name: "Math Quiz",
-        description: "Prepare to answer questions about simple mathematics.",
+        name: "Quiz 2: Simple Math",
+        description: "There are questions about simple mathematics.",
         questions: [
             {
                 title: "(11 * 10) / 5 = ",
@@ -65,10 +66,10 @@ var quizzes = [
     },
 ];
 
-
+// debugger 
 debugger;
 
-
+// CONST are variables that can neither be updated nor re-declared
 const TIME_PER_QUESTION = 15;
 const WRONG_PENALTY = 10;
 const TIME_SHOW_CORRECT_MS = 1500;
@@ -104,14 +105,14 @@ const btnBackEl = document.getElementById("btnBack");
 const btnClearScoresEl = document.getElementById("btnClearScores");
 
 
-let timeRemaining = 0;
-let tmrInterval;
-let questionIndex = 0;
-let highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
-let currentScreenEl = screenSelectEl;
-let responseTimeoutId;
-let questions = [];
-let currentQuizName = "";
+var timeRemaining = 0;
+var tmrInterval;
+var questionIndex = 0;
+var highScores = JSON.parse(localStorage.getItem("high-scores")) || [];
+var currentScreenEl = screenSelectEl;
+var responseTimeoutId;
+var questions = [];
+var currentQuizName = "";
 
 
 // EVENT HANDLERS
@@ -119,8 +120,8 @@ let currentQuizName = "";
 // Quiz Select
 function handleQuizSelect(event) {
     if (!event.target.matches("button")) { return; }
-    let quizIndex = event.target.getAttribute("data-id");
-    let quiz = quizzes[quizIndex];
+    var quizIndex = event.target.getAttribute("data-id");
+    var quiz = quizzes[quizIndex];
     questions = quiz.questions;
     currentQuizName = quiz.name;
     quizNameEl.textContent = currentQuizName;
@@ -151,7 +152,7 @@ function handleResponse(event) {
 
     if (!event.target.matches("button")) { return; }
 
-    let isCorrect = event.target.getAttribute("data-answer") === "true";
+    var isCorrect = event.target.getAttribute("data-answer") === "true";
 
     if (!isCorrect) {
         timeRemaining = (timeRemaining >= WRONG_PENALTY) ? (timeRemaining - WRONG_PENALTY) : 0;
@@ -170,9 +171,9 @@ function handleResponse(event) {
     }
 }
 
-// Submit High Score Click
+// Asks for 2 initials to submit to high score list
 function handleSubmitScoreClick() {
-    let initials = inpInitialsEl.value.trim();
+    var initials = inpInitialsEl.value.trim();
     if (initials.length < 2) {
         alert("Initials must be at least 2 characters");
         return;
@@ -181,14 +182,14 @@ function handleSubmitScoreClick() {
     handleViewHigh();
 }
 
-// Submit High Score Keypress (enter)
+// Submits high score when pressing ENTER key
 function handleSubmitScoreKeyPress(event) {
     if (event.which === 13) {
         handleSubmitScoreClick();
     }
 }
 
-// Go Back to Start
+// Returns to main page
 function handleBack() {
     timeRemaining = 0;
     headerEl.setAttribute("style", "visibility: visible;");
@@ -196,7 +197,7 @@ function handleBack() {
     showScreen(screenSelectEl);
 }
 
-// Clear Scores
+// Clears high scores list
 function handleClearscores() {
     highScores = [];
     updateStorage();
@@ -204,13 +205,12 @@ function handleClearscores() {
 }
 
 
-// HELPER FUNCTIONS
-// Update Client Storage with High Scores list
+// Stores into local storage with to 5 high score list
 function updateStorage() {
     localStorage.setItem("high-scores", JSON.stringify(highScores));
 }
 
-// 1-sec Timer Event
+// Timer counting down to 0
 function timerEvent() {
     timeRemaining--;
     updateTimeDisplay();
@@ -247,10 +247,10 @@ function refreshScoreList() {
 
 
 
-    let numDisplay = highScores.length < MAX_SCORES ? highScores.length : MAX_SCORES;
-    for (let index = 0; index < numDisplay; index++) {
-        let li = document.createElement("li");
-        let classes = "score-item alert-info";
+    var numDisplay = highScores.length < MAX_SCORES ? highScores.length : MAX_SCORES;
+    for (var index = 0; index < numDisplay; index++) {
+        var li = document.createElement("li");
+        var classes = "score-item alert-info";
         if (highScores[index].id === highScores.length - 1) classes += " current";
         li.setAttribute("class", classes);
         li.textContent = highScores[index].initials + ": " + highScores[index].score + " (" + highScores[index].quiz + ")";
@@ -260,7 +260,7 @@ function refreshScoreList() {
 
 // Load the current Question
 function loadCurrentQuestion() {
-    let question = questions[questionIndex];
+    var question = questions[questionIndex];
     questionTextEl.textContent = question.title;
     buildResponseList(question);
 }
@@ -280,17 +280,17 @@ function showResponse(isCorrect) {
 // Build the Question Response List for the provided question
 function buildResponseList(question) {
     responseListEl.innerHTML = "";
-    for (let index = 0; index < question.choices.length; index++) {
-        let btn = createResponseButton(question, index);
+    for (var index = 0; index < question.choices.length; index++) {
+        var btn = createResponseButton(question, index);
         responseListEl.appendChild(btn);
     }
 }
 
 // Create a single question response button
 function createResponseButton(question, index) {
-    let li = document.createElement("li");
-    let text = question.choices[index];
-    let btn = document.createElement("button");
+    var li = document.createElement("li");
+    var text = question.choices[index];
+    var btn = document.createElement("button");
     btn.setAttribute("class", "btn btn-primary btn-choice");
     btn.setAttribute("data-answer", (text === question.answer));
     btn.textContent = (index + 1) + ". " + text;
@@ -300,23 +300,25 @@ function createResponseButton(question, index) {
 
 // Build a list of available quizzes
 function buildQuizList() {
-    for (let index = 0; index < quizzes.length; index++) {
-        let btn = createQuizButton(quizzes[index].name, index);
+
+    for (var index = 0; index < quizzes.length; index++) {
+        var btn = createQuizButton(quizzes[index].name, index);
         selectQuizListEl.appendChild(btn);
     }
 
-    // Trying to make a good luck pop up
-    // $(function () {
-    //     $("#btn-primary").click(function (event) {
-    //         text("Good luck!").slideDown(2000);
-    //     });
-    // });
+
+
+}
+
+function myFunction() {
+    alert("Good luck friend");
 }
 
 // Create a single quiz button
 function createQuizButton(name, index) {
-    let li = document.createElement("li");
-    let btn = document.createElement("button");
+
+    var li = document.createElement("li");
+    var btn = document.createElement("button");
     btn.textContent = name;
     btn.setAttribute("class", "btn btn-primary btn-choice");
     btn.setAttribute("data-id", index);
@@ -324,16 +326,17 @@ function createQuizButton(name, index) {
     return li;
 }
 
-// Hide the current screen and show a new one
+// Hides current screen and show a new one
 function showScreen(el) {
     if (currentScreenEl) {
         currentScreenEl.style.display = "none"
     }
-    el.style.display = "block";
+    // inline-block vs block?
+    el.style.display = "inline-block";
     currentScreenEl = el;
 }
 
-// SETUP EVENT LISTENERS
+// List of addEventListener when clicked
 selectQuizListEl.addEventListener("click", handleQuizSelect);
 viewHighEl.addEventListener("click", handleViewHigh);
 btnStartEl.addEventListener("click", handleStartGame);
@@ -343,5 +346,5 @@ btnClearScoresEl.addEventListener("click", handleClearscores);
 btnSubmitScoreEl.addEventListener("click", handleSubmitScoreClick);
 inpInitialsEl.addEventListener("keypress", handleSubmitScoreKeyPress);
 
-// Build the Initial Quiz List
+// STARTS HERE: Show Quiz List
 buildQuizList();

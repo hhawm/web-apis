@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <!-- Header Bar -->
+        <!-- Header with view scores link and timer -->
         <div id="header">
             <a href="#" id="high-scores-link">View Scores</a>
             <div id="time">
@@ -27,7 +27,7 @@
                 <h3 class="list-heading">Select a quiz:</h3>
                 <ul id="quiz-select-list"></ul>
             </div>
-            <!-- Main page for selected quiz -->
+            <!-- Main page for the selected quiz -->
             <div id="start-screen">
                 <h1 id="quiz-name"></h1>
                 <p>
@@ -35,7 +35,7 @@
                     Try to answer the following code-related questions within the time limit.
                     Keep in mind that incorrect answers will penalize your score/time by 10 seconds.
                 </p>
-                <button id="start" class="btn btn-primary">Start Quiz</button>
+                <button id="start" class="btn btn-primary">Start Quiz Now</button>
             </div>
             <!-- Questions appear here -->
             <div id="question-screen">
@@ -45,12 +45,13 @@
             </div>
             <!-- Results page -->
             <div id="result-screen">
-                <h3>All Done!</h3>
+                <h3>Finished.</h3>
                 <div>
                     <span>Your final score is: </span>
                     <span id="final-time"></span>
                 </div>
                 <div id="initial-entry" class="form-inline mt-2">
+                    <!-- Initials is allowing numbers here? -->
                     <label for="initials" class="col-form-label mr-2 mb-1">Enter Initials (2):</label>
                     <input type="text" id="initials-input" class="form-control mr-2 mb-1" maxlength="2">
                     <button id="btnSubmitScore" class="btn btn-primary mb-1">Submit</button>
@@ -58,7 +59,7 @@
             </div>
             <!-- High scores page -->
             <div id="scores-screen">
-                <h1>TOP 5 HIGH SCORES:</h1>
+                <h1>TOP FIVE HIGH SCORES:</h1>
                 <ol id="high-score-list"></ol>
                 <button id="btnBack" class="btn btn-primary">Go back to Main</button>
                 <button id="btnClearScores" class="btn btn-primary">Clear high scores</button>
