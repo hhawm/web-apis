@@ -1,4 +1,5 @@
 // VAR list of arrays with questions, multiple choices, answers
+// This list looks long but only has two 
 var quizzes = [
     {
         name: "Quiz 1: Javascript",
@@ -29,7 +30,6 @@ var quizzes = [
                 choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
                 answer: "console.log"
             },
-
         ]
     },
     {
@@ -61,13 +61,12 @@ var quizzes = [
                 choices: ["12", "14", "8", "10"],
                 answer: "10"
             },
-
         ]
     },
 ];
 
 // CONST are variables that can neither be updated nor re-declared
-const TIME_PER_QUESTION = 15;
+// const TIME_PER_QUESTION = 15;
 const WRONG_PENALTY = 10;
 const TIME_SHOW_CORRECT_MS = 1500;
 const MAX_SCORES = 5;
